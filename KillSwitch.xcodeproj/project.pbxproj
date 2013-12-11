@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D410F151858806F00967B30 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D410F141858806F00967B30 /* Cocoa.framework */; };
+		0D410F1F1858806F00967B30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F1D1858806F00967B30 /* InfoPlist.strings */; };
+		0D410F211858806F00967B30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D410F201858806F00967B30 /* main.m */; };
+		0D410F251858806F00967B30 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F231858806F00967B30 /* Credits.rtf */; };
+		0D410F281858806F00967B30 /* HRKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D410F271858806F00967B30 /* HRKAppDelegate.m */; };
+		0D410F2B1858806F00967B30 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F291858806F00967B30 /* MainMenu.xib */; };
+		0D410F2D1858806F00967B30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F2C1858806F00967B30 /* Images.xcassets */; };
+		0D410F341858806F00967B30 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D410F331858806F00967B30 /* XCTest.framework */; };
+		0D410F351858806F00967B30 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D410F141858806F00967B30 /* Cocoa.framework */; };
+		0D410F3D1858806F00967B30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F3B1858806F00967B30 /* InfoPlist.strings */; };
+		0D410F3F1858806F00967B30 /* KillSwitchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D410F3E1858806F00967B30 /* KillSwitchTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0D410F361858806F00967B30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D410F091858806F00967B30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D410F101858806F00967B30;
+			remoteInfo = KillSwitch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D410F111858806F00967B30 /* KillSwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KillSwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D410F141858806F00967B30 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		0D410F171858806F00967B30 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		0D410F181858806F00967B30 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0D410F191858806F00967B30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0D410F1C1858806F00967B30 /* KillSwitch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KillSwitch-Info.plist"; sourceTree = "<group>"; };
+		0D410F1E1858806F00967B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0D410F201858806F00967B30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0D410F221858806F00967B30 /* KillSwitch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KillSwitch-Prefix.pch"; sourceTree = "<group>"; };
+		0D410F241858806F00967B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		0D410F261858806F00967B30 /* HRKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRKAppDelegate.h; sourceTree = "<group>"; };
+		0D410F271858806F00967B30 /* HRKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRKAppDelegate.m; sourceTree = "<group>"; };
+		0D410F2A1858806F00967B30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0D410F2C1858806F00967B30 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0D410F321858806F00967B30 /* KillSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KillSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D410F331858806F00967B30 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0D410F3A1858806F00967B30 /* KillSwitchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KillSwitchTests-Info.plist"; sourceTree = "<group>"; };
+		0D410F3C1858806F00967B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0D410F3E1858806F00967B30 /* KillSwitchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KillSwitchTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D410F0E1858806F00967B30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D410F151858806F00967B30 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D410F2F1858806F00967B30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D410F351858806F00967B30 /* Cocoa.framework in Frameworks */,
+				0D410F341858806F00967B30 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D410F081858806F00967B30 = {
+			isa = PBXGroup;
+			children = (
+				0D410F1A1858806F00967B30 /* KillSwitch */,
+				0D410F381858806F00967B30 /* KillSwitchTests */,
+				0D410F131858806F00967B30 /* Frameworks */,
+				0D410F121858806F00967B30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0D410F121858806F00967B30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D410F111858806F00967B30 /* KillSwitch.app */,
+				0D410F321858806F00967B30 /* KillSwitchTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0D410F131858806F00967B30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D410F141858806F00967B30 /* Cocoa.framework */,
+				0D410F331858806F00967B30 /* XCTest.framework */,
+				0D410F161858806F00967B30 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0D410F161858806F00967B30 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D410F171858806F00967B30 /* AppKit.framework */,
+				0D410F181858806F00967B30 /* CoreData.framework */,
+				0D410F191858806F00967B30 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		0D410F1A1858806F00967B30 /* KillSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				0D410F261858806F00967B30 /* HRKAppDelegate.h */,
+				0D410F271858806F00967B30 /* HRKAppDelegate.m */,
+				0D410F291858806F00967B30 /* MainMenu.xib */,
+				0D410F2C1858806F00967B30 /* Images.xcassets */,
+				0D410F1B1858806F00967B30 /* Supporting Files */,
+			);
+			path = KillSwitch;
+			sourceTree = "<group>";
+		};
+		0D410F1B1858806F00967B30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0D410F1C1858806F00967B30 /* KillSwitch-Info.plist */,
+				0D410F1D1858806F00967B30 /* InfoPlist.strings */,
+				0D410F201858806F00967B30 /* main.m */,
+				0D410F221858806F00967B30 /* KillSwitch-Prefix.pch */,
+				0D410F231858806F00967B30 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0D410F381858806F00967B30 /* KillSwitchTests */ = {
+			isa = PBXGroup;
+			children = (
+				0D410F3E1858806F00967B30 /* KillSwitchTests.m */,
+				0D410F391858806F00967B30 /* Supporting Files */,
+			);
+			path = KillSwitchTests;
+			sourceTree = "<group>";
+		};
+		0D410F391858806F00967B30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0D410F3A1858806F00967B30 /* KillSwitchTests-Info.plist */,
+				0D410F3B1858806F00967B30 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0D410F101858806F00967B30 /* KillSwitch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D410F421858806F00967B30 /* Build configuration list for PBXNativeTarget "KillSwitch" */;
+			buildPhases = (
+				0D410F0D1858806F00967B30 /* Sources */,
+				0D410F0E1858806F00967B30 /* Frameworks */,
+				0D410F0F1858806F00967B30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KillSwitch;
+			productName = KillSwitch;
+			productReference = 0D410F111858806F00967B30 /* KillSwitch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0D410F311858806F00967B30 /* KillSwitchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D410F451858806F00967B30 /* Build configuration list for PBXNativeTarget "KillSwitchTests" */;
+			buildPhases = (
+				0D410F2E1858806F00967B30 /* Sources */,
+				0D410F2F1858806F00967B30 /* Frameworks */,
+				0D410F301858806F00967B30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D410F371858806F00967B30 /* PBXTargetDependency */,
+			);
+			name = KillSwitchTests;
+			productName = KillSwitchTests;
+			productReference = 0D410F321858806F00967B30 /* KillSwitchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0D410F091858806F00967B30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HRK;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = hrk;
+				TargetAttributes = {
+					0D410F311858806F00967B30 = {
+						TestTargetID = 0D410F101858806F00967B30;
+					};
+				};
+			};
+			buildConfigurationList = 0D410F0C1858806F00967B30 /* Build configuration list for PBXProject "KillSwitch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0D410F081858806F00967B30;
+			productRefGroup = 0D410F121858806F00967B30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0D410F101858806F00967B30 /* KillSwitch */,
+				0D410F311858806F00967B30 /* KillSwitchTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0D410F0F1858806F00967B30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D410F1F1858806F00967B30 /* InfoPlist.strings in Resources */,
+				0D410F2D1858806F00967B30 /* Images.xcassets in Resources */,
+				0D410F251858806F00967B30 /* Credits.rtf in Resources */,
+				0D410F2B1858806F00967B30 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D410F301858806F00967B30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D410F3D1858806F00967B30 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D410F0D1858806F00967B30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D410F281858806F00967B30 /* HRKAppDelegate.m in Sources */,
+				0D410F211858806F00967B30 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D410F2E1858806F00967B30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D410F3F1858806F00967B30 /* KillSwitchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D410F371858806F00967B30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D410F101858806F00967B30 /* KillSwitch */;
+			targetProxy = 0D410F361858806F00967B30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0D410F1D1858806F00967B30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D410F1E1858806F00967B30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0D410F231858806F00967B30 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D410F241858806F00967B30 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		0D410F291858806F00967B30 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D410F2A1858806F00967B30 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		0D410F3B1858806F00967B30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D410F3C1858806F00967B30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0D410F401858806F00967B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0D410F411858806F00967B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0D410F431858806F00967B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KillSwitch/KillSwitch-Prefix.pch";
+				INFOPLIST_FILE = "KillSwitch/KillSwitch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0D410F441858806F00967B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KillSwitch/KillSwitch-Prefix.pch";
+				INFOPLIST_FILE = "KillSwitch/KillSwitch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0D410F461858806F00967B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KillSwitch.app/Contents/MacOS/KillSwitch";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KillSwitch/KillSwitch-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "KillSwitchTests/KillSwitchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0D410F471858806F00967B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KillSwitch.app/Contents/MacOS/KillSwitch";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KillSwitch/KillSwitch-Prefix.pch";
+				INFOPLIST_FILE = "KillSwitchTests/KillSwitchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D410F0C1858806F00967B30 /* Build configuration list for PBXProject "KillSwitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D410F401858806F00967B30 /* Debug */,
+				0D410F411858806F00967B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D410F421858806F00967B30 /* Build configuration list for PBXNativeTarget "KillSwitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D410F431858806F00967B30 /* Debug */,
+				0D410F441858806F00967B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0D410F451858806F00967B30 /* Build configuration list for PBXNativeTarget "KillSwitchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D410F461858806F00967B30 /* Debug */,
+				0D410F471858806F00967B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0D410F091858806F00967B30 /* Project object */;
+}
