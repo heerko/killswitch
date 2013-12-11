@@ -7,9 +7,23 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Matatino/Matatino.h>
 
-@interface HRKAppDelegate : NSObject <NSApplicationDelegate>
+@interface HRKAppDelegate : NSObject <NSApplicationDelegate, MatatinoDelegate>{
+	IBOutlet NSMenu *statusMenu;
+	NSStatusItem *statusItem;
+	NSImage *statusImage;
+	NSImage *statusHighlightImage;
+	NSString *deviceName;
+	Matatino *arduino;
+	BOOL internetConnected;
+}
+
+- (IBAction)updateArduinoStatus:(id)sender;
+- (NSArray*)getSerialDevices;
 
 @property (assign) IBOutlet NSWindow *window;
+@property BOOL internetConnected;
+@property Matatino* arduino;
 
 @end
