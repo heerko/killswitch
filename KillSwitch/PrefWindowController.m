@@ -2,70 +2,106 @@
 //  PrefWindowController.m
 //  KillSwitch
 //
-//  Created by hrk on 11-12-13.
+//  Created by hrk on 17-12-13.
 //  Copyright (c) 2013 hrk. All rights reserved.
 //
 
 #import "PrefWindowController.h"
 #import "HRKAppDelegate.h"
 
+
+
+@interface PrefWindowController ()
+
+@end
+
 @implementation PrefWindowController
 
 @synthesize serialDeviceNames;
-@synthesize theWindow;
 @synthesize networkDeviceName;
+@synthesize serialDevice;
+@synthesize networkDevice;
+
 
 - (id)initWithWindow:(NSWindow *)window
 {
+	NSLog(@"init %@", window );
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
-		NSLog(@"Window opened");
-		theWindow = window;
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidBecomeKey:) name:NSWindowDidBecomeKeyNotification object:window];
-	}
+		defaults = [NSUserDefaults standardUserDefaults];
+		[self showWindow:nil];
+		[self getDefaults];
+    }
     return self;
 }
 
+- (void) awakeFromNib{
+	NSLog( @"awake" );
+}
+
+- (void)windowDidLoad {
+	NSLog(@"window did load.");
+//	[self getDefaults];
+    [super windowDidLoad];
+	[self.window makeKeyAndOrderFront:self];
+}
+
+-(void)showWindow:(id)sender{
+	NSLog( @"show %@", self.window);
+	[super showWindow:sender];
+	[self.window makeKeyAndOrderFront:nil];
+	[NSApp activateIgnoringOtherApps:YES];
+}
+
 -(void) windowDidBecomeKey:(id)sender{
-	NSLog(@"key");
-	NSApplication *myApp = [NSApplication sharedApplication];
-	[myApp activateIgnoringOtherApps:YES];
-	[self.window orderFrontRegardless];
 	[self populateDeviceMenu];
+}
+
+- (BOOL)windowShouldClose:(id)sender{
+	[self changeArduinoDeviceName:serialDeviceNames];
+	[self changeNetworkDeviceName:networkDeviceName];
+	return YES;
 }
 
 -(void)populateDeviceMenu{
 	devices = [(HRKAppDelegate *)[[NSApplication sharedApplication]delegate] getSerialDevices];
-	NSLog(@"%@", devices);
+
 	for (id device in devices) {
 		[serialDeviceNames addItemWithTitle:device];
+	}
+	if( ! [devices containsObject:serialDevice] ){
+		NSLog(@"current device not found");
+		networkDevice = NULL;
+		[self showWindow:self];
+	} else {
+		[serialDeviceNames selectItemWithTitle:serialDevice];
 	}
 	[serialDeviceNames calcSize];
 }
 
-- (BOOL)windowShouldClose:(id)sender{
-	NSLog(@"%@ closed", sender);
-	return YES;
-}
-
 - (IBAction)changeArduinoDeviceName:(id)sender {
-	NSString *deviceName = [sender title];
-	NSLog(@"%@", deviceName);
+	serialDevice = [sender title];
+	[defaults setObject:serialDevice forKey:@"KillSwitchDeviceName"];
+	[defaults synchronize];
 }
 
 - (IBAction)changeNetworkDeviceName:(id)sender {
-	NSLog(@"%@", [sender stringValue]);
+	networkDevice = [sender stringValue];
+	[defaults setObject:networkDevice forKey:@"NetworkDeviceName"];
+	[defaults synchronize];
 }
 
-
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+- (void) getDefaults{
+	serialDevice = [defaults stringForKey:@"KillSwitchDeviceName"];
+	networkDevice = [defaults stringForKey:@"NetworkDeviceName"];
+	NSLog( @"%@ / %@", serialDevice, networkDevice);
+	
+	if ( serialDevice == NULL || networkDevice == NULL ){
+		NSLog(@"Show pref window %@", self.window);
+		// TODO: this doesn't work somehow.
+		[self showWindow:nil];
+	}
+	[(HRKAppDelegate *)[[NSApplication sharedApplication]delegate] prefsLoaded:serialDevice network:networkDevice];
 }
 
-- (void)close{
-	NSLog(@"Closed prefwindow");
-}
 @end

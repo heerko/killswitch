@@ -2,7 +2,7 @@
 //  PrefWindowController.h
 //  KillSwitch
 //
-//  Created by hrk on 11-12-13.
+//  Created by hrk on 17-12-13.
 //  Copyright (c) 2013 hrk. All rights reserved.
 //
 
@@ -10,10 +10,14 @@
 
 @interface PrefWindowController : NSWindowController{
 	NSArray *devices;
+//	NSString *currentArduinoDevice;
+//	NSString *currentNetworkDevice;
+	NSUserDefaults* defaults;
+	
 }
 @property (weak) IBOutlet NSPopUpButton *serialDeviceNames;
 @property (weak) IBOutlet NSTextField *networkDeviceName;
-@property (unsafe_unretained) IBOutlet NSWindow *closePrefWindow;
-@property NSWindow *theWindow;
+@property NSString *serialDevice;
+@property NSString *networkDevice;
 
 @end
