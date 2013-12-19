@@ -11,7 +11,6 @@
 #import "PrefWindowController.h"
 
 @implementation HRKAppDelegate {
-    __weak id _constantShortcutMonitor;
 }
 
 @synthesize internetConnected;
@@ -19,23 +18,23 @@
 @synthesize window;
 
 /** Application callbacks **/
+-(void) applicationDidFinishLaunching:(NSNotification *)notification{
+	arduino = [[Matatino alloc] initWithDelegate:self];
+	internetConnected = YES; // assume we're connected
+	NSLog(@"get defaults");
+	[[self prefVC] getDefaults];
+}
+
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification{
+	self.prefVC = [[PrefWindowController alloc] initWithWindowNibName:@"PrefWindowController"];
+}
+
 - (void) awakeFromNib{
 	[self initMenuIcon];
 }
 
--(IBAction)openPrefWindow:(id)sender{
-	NSLog(@"Open pref window %@", self.prefVC);
-	[self.prefVC showWindow:self];
-}
-
--(void) applicationDidFinishLaunching:(NSNotification *)notification{
-	arduino = [[Matatino alloc] initWithDelegate:self];
-	internetConnected = YES; // assume we're connected
-	self.prefVC = [[PrefWindowController alloc] initWithWindowNibName:@"PrefWindowController"];
-}
-
 - (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *)sender {
-	// Safely disconnectq
+	// Safely disconnect
 	[self disconnectArduino];
 	return NSTerminateNow;
 }
@@ -60,11 +59,19 @@
 }
 
 -(void)prefsLoaded:(NSString *)serialDevice network:(NSString*)networkDevice{
-//	deviceName = [[self prefVC] serialDevice];
+	NSString *oldDeviceName = deviceName;
 	deviceName = serialDevice;
 	networkName = networkDevice;
-	NSLog(@"PREFS LOADED %@", deviceName);
-	[self connectArduino];
+	if( ![deviceName isEqualToString:oldDeviceName] ){
+		if( [arduino isConnected] ){
+			[self disconnectArduino];
+		}
+		[self connectArduino];
+	}
+}
+
+-(IBAction)openPrefWindow:(id)sender{
+	[[self prefVC] showWindow:nil];
 }
 
 /** Arduino / Matatino stuff **/
@@ -74,26 +81,36 @@
 }
 
 - (void) receivedString:(NSString *)rx {
-	NSLog(@"Received string! %@", rx);
-	[self setNetworkStatus:rx];
+	if([rx isEqualToString:@"c"]){
+		// arduino sends a 'c' on startup. We wait for this
+		// as confirmation.
+		arduinoConnected = YES;
+		[self updateMenuIcon];
+		[nTimer invalidate];
+	} else {
+		[self setNetworkStatus:rx];
+	}
 }
 
 - (void) portAdded:(NSArray *)ports {
 }
 
 - (void) portRemoved:(NSArray *)ports {
-	NSLog(@"%@", ports);
 	for (id port in ports) {
 		// do something with object
 		if ( [port isEqualToString: deviceName] ){
+			NSLog( @"%@ / %@", ports, deviceName);
 			[[arduino port] free];
+			//arduino = [[Matatino alloc] initWithDelegate:self];
 			[self updateMenuIcon];
+			arduinoConnected = NO;
 			//arduino = [[Matatino alloc] initWithDelegate:self];
 		}
 	}
 }
 
 - (void) portClosed {
+	arduinoConnected = NO;
 	[self updateMenuIcon];
 }
 
@@ -101,22 +118,42 @@
 	if( [arduino isConnected] ){
 		NSLog(@"Disconnecting...");
 		[arduino disconnect];
+		arduinoConnected = NO;
 	}
 	[self updateMenuIcon];
 }
 
 - (void) connectArduino{
-	if( ![arduino isConnected]){
+	if( ! [arduino isConnected] ){
+		NSLog(@"Attempting to connect to %@", deviceName);
 		// Connect to your device with 9600 baud
         if([arduino connect:deviceName withBaud:B9600]) {
             NSLog(@"Connection success!");
-        } else {
+			
+			// if we don't get a 'c' over serial within 4s assume we didn't connect to an arduino.
+			nTimer = [NSTimer scheduledTimerWithTimeInterval:4.0f target:self selector:@selector(didTimeout) userInfo:nil repeats:NO];
+		} else {
             NSLog(@"Connection fail");
+			[self openPrefWindow:nil];
         }
 	} else {
 		NSLog(@"Arduino is already connected");
 	}
 	[self updateMenuIcon];
+}
+
+- (void)didTimeout{
+	arduinoConnected = NO;
+	[self updateMenuIcon];
+	NSAlert *alert = [[NSAlert alloc] init];
+	[alert addButtonWithTitle:@"OK"];
+	[alert setMessageText:@"Please select a Kill Switch Device"];
+	[alert setInformativeText:@"The name usually starts with /dev/tty.usbmodem*** or similar."];
+	[alert setAlertStyle:NSWarningAlertStyle];
+	if ([alert runModal] == NSAlertFirstButtonReturn) {
+		[self openPrefWindow:nil];
+	}
+
 }
 
 /** Set the networkstatus based on string **/
@@ -147,10 +184,10 @@
 - (void) initMenuIcon{
 	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] ;
 	NSBundle *bundle = [NSBundle mainBundle];
-	statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"switchdisabled" ofType:@"png"]];
-	statusHighlightImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"switchhighlight" ofType:@"png"]];
-	[statusItem setImage:statusImage];
-	[statusItem setAlternateImage:statusHighlightImage];
+	statusImage_disabled = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"switch_disabled" ofType:@"png"]];
+	statusImage_on = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"switch_on" ofType:@"png"]];
+	statusImage_off = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"switch_off" ofType:@"png"]];
+	[statusItem setImage:statusImage_disabled];
 	[statusItem setMenu:statusMenu];
 	[statusItem setToolTip:@"KillSwitch yo internetz!"];
 	[statusItem setHighlightMode:YES];
@@ -158,20 +195,17 @@
 
 /** Update the menu bar icon after a status change **/
 - (void) updateMenuIcon{
-	NSBundle *bundle = [NSBundle mainBundle];
-	
-	if( [arduino isConnected] ){
+	if( arduinoConnected ){
 		[[statusMenu itemAtIndex:0] setTitle: @"Disconnect from Switch"];
 		if ( internetConnected ){
-			statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"switch" ofType:@"png"]];
+			[statusItem setImage:statusImage_off];
 		} else {
-			statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"switchon" ofType:@"png"]];
+			[statusItem setImage:statusImage_on];
 		}
 	} else {
-		statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"switchdisabled" ofType:@"png"]];
+		[statusItem setImage:statusImage_disabled];
 		[[statusMenu itemAtIndex:0] setTitle: @"Connect to Switch"];
 	}
-	[statusItem setImage:statusImage];
 }
 
 @end

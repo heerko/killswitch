@@ -22,21 +22,17 @@
 @synthesize serialDevice;
 @synthesize networkDevice;
 
-
-- (id)initWithWindow:(NSWindow *)window
-{
-	NSLog(@"init %@", window );
-    self = [super initWithWindow:window];
-    if (self) {
+- (id) initWithWindowNibName:(NSString *)nib{
+	NSLog(@"pref window init");
+	self = [super initWithWindowNibName:nib];
+	if( self ){
 		defaults = [NSUserDefaults standardUserDefaults];
-		[self showWindow:nil];
-		[self getDefaults];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void) awakeFromNib{
-	NSLog( @"awake" );
+//	NSLog( @"awake" );
 }
 
 - (void)windowDidLoad {
@@ -83,12 +79,15 @@
 	serialDevice = [sender title];
 	[defaults setObject:serialDevice forKey:@"KillSwitchDeviceName"];
 	[defaults synchronize];
+	[self updateAppDelegate];
+	
 }
 
 - (IBAction)changeNetworkDeviceName:(id)sender {
 	networkDevice = [sender stringValue];
 	[defaults setObject:networkDevice forKey:@"NetworkDeviceName"];
 	[defaults synchronize];
+	[self updateAppDelegate];
 }
 
 - (void) getDefaults{
@@ -101,6 +100,11 @@
 		// TODO: this doesn't work somehow.
 		[self showWindow:nil];
 	}
+	[self updateAppDelegate];
+}
+
+
+- (void)updateAppDelegate{
 	[(HRKAppDelegate *)[[NSApplication sharedApplication]delegate] prefsLoaded:serialDevice network:networkDevice];
 }
 

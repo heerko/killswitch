@@ -20,4 +20,7 @@
 @property NSString *serialDevice;
 @property NSString *networkDevice;
 
+
+- (void) getDefaults;
+
 @end

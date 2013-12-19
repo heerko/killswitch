@@ -20,12 +20,11 @@
 		0D410F351858806F00967B30 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D410F141858806F00967B30 /* Cocoa.framework */; };
 		0D410F3D1858806F00967B30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F3B1858806F00967B30 /* InfoPlist.strings */; };
 		0D410F3F1858806F00967B30 /* KillSwitchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D410F3E1858806F00967B30 /* KillSwitchTests.m */; };
-		0D410F5118588BD100967B30 /* switchhilight.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F4F18588BD100967B30 /* switchhilight.png */; };
-		0D410F5218588BD100967B30 /* switch.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F5018588BD100967B30 /* switch.png */; };
+		0D410F5218588BD100967B30 /* switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F5018588BD100967B30 /* switch_off.png */; };
 		0D410F54185893D300967B30 /* Matatino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D410F53185893D300967B30 /* Matatino.framework */; };
 		0D410F561858948F00967B30 /* Matatino.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0D410F53185893D300967B30 /* Matatino.framework */; };
-		0D410F581858A30400967B30 /* switchdisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F571858A30400967B30 /* switchdisabled.png */; };
-		0D410F5C1858CB0100967B30 /* switchon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F5B1858CB0100967B30 /* switchon.png */; };
+		0D410F581858A30400967B30 /* switch_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F571858A30400967B30 /* switch_disabled.png */; };
+		0D410F5C1858CB0100967B30 /* switch_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D410F5B1858CB0100967B30 /* switch_on.png */; };
 		0D410F9C185CA8A800967B30 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D410F9B185CA8A800967B30 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,11 +74,10 @@
 		0D410F3A1858806F00967B30 /* KillSwitchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KillSwitchTests-Info.plist"; sourceTree = "<group>"; };
 		0D410F3C1858806F00967B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0D410F3E1858806F00967B30 /* KillSwitchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KillSwitchTests.m; sourceTree = "<group>"; };
-		0D410F4F18588BD100967B30 /* switchhilight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchhilight.png; sourceTree = "<group>"; };
-		0D410F5018588BD100967B30 /* switch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch.png; sourceTree = "<group>"; };
+		0D410F5018588BD100967B30 /* switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_off.png; sourceTree = "<group>"; };
 		0D410F53185893D300967B30 /* Matatino.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Matatino.framework; sourceTree = "<group>"; };
-		0D410F571858A30400967B30 /* switchdisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchdisabled.png; sourceTree = "<group>"; };
-		0D410F5B1858CB0100967B30 /* switchon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchon.png; sourceTree = "<group>"; };
+		0D410F571858A30400967B30 /* switch_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_disabled.png; sourceTree = "<group>"; };
+		0D410F5B1858CB0100967B30 /* switch_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_on.png; sourceTree = "<group>"; };
 		0D410F9B185CA8A800967B30 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Carbon.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,10 +163,9 @@
 		0D410F1B1858806F00967B30 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0D410F5B1858CB0100967B30 /* switchon.png */,
-				0D410F571858A30400967B30 /* switchdisabled.png */,
-				0D410F4F18588BD100967B30 /* switchhilight.png */,
-				0D410F5018588BD100967B30 /* switch.png */,
+				0D410F5B1858CB0100967B30 /* switch_on.png */,
+				0D410F571858A30400967B30 /* switch_disabled.png */,
+				0D410F5018588BD100967B30 /* switch_off.png */,
 				0D410F1C1858806F00967B30 /* KillSwitch-Info.plist */,
 				0D410F1D1858806F00967B30 /* InfoPlist.strings */,
 				0D410F201858806F00967B30 /* main.m */,
@@ -275,13 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D410F1F1858806F00967B30 /* InfoPlist.strings in Resources */,
-				0D410F5C1858CB0100967B30 /* switchon.png in Resources */,
+				0D410F5C1858CB0100967B30 /* switch_on.png in Resources */,
 				0D410F2D1858806F00967B30 /* Images.xcassets in Resources */,
 				0D410F251858806F00967B30 /* Credits.rtf in Resources */,
-				0D410F581858A30400967B30 /* switchdisabled.png in Resources */,
-				0D410F5218588BD100967B30 /* switch.png in Resources */,
+				0D410F581858A30400967B30 /* switch_disabled.png in Resources */,
+				0D410F5218588BD100967B30 /* switch_off.png in Resources */,
 				0D1F97F51860DA9400D01A88 /* PrefWindowController.xib in Resources */,
-				0D410F5118588BD100967B30 /* switchhilight.png in Resources */,
 				0D410F2B1858806F00967B30 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +430,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/Matatino",
@@ -443,6 +440,7 @@
 				GCC_PREFIX_HEADER = "KillSwitch/KillSwitch-Prefix.pch";
 				INFOPLIST_FILE = "KillSwitch/KillSwitch-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -453,6 +451,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/Matatino",
@@ -462,6 +461,7 @@
 				GCC_PREFIX_HEADER = "KillSwitch/KillSwitch-Prefix.pch";
 				INFOPLIST_FILE = "KillSwitch/KillSwitch-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

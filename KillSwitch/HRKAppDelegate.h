@@ -13,12 +13,15 @@
 @interface HRKAppDelegate : NSObject <NSApplicationDelegate, MatatinoDelegate>{
 	IBOutlet NSMenu *statusMenu;
 	NSStatusItem *statusItem;
-	NSImage *statusImage;
-	NSImage *statusHighlightImage;
+	NSImage *statusImage_on;
+	NSImage *statusImage_off;
+	NSImage *statusImage_disabled;
 	NSString *deviceName;
 	NSString *networkName;
 	Matatino *arduino;
+	BOOL arduinoConnected;
 	BOOL internetConnected;
+	NSTimer *nTimer;
 }
 
 @property (nonatomic, retain) IBOutlet PrefWindowController *prefVC;
